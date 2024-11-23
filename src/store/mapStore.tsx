@@ -1,11 +1,21 @@
 import { create } from "zustand";
 
 export interface MapStore {
-  showRoute: boolean;
-  setShowRoute: (value: boolean) => void;
+  droneRoutes: boolean;
+  myRoute: boolean;
+  childRoutes: boolean;
+  userRoutes: boolean;
+  setShowRoute: (
+    routeType: keyof Omit<MapStore, "setShowRoute">,
+    value: boolean
+  ) => void;
 }
 
 export const useMapStore = create<MapStore>(set => ({
-  showRoute: true,
-  setShowRoute: value => set({ showRoute: value })
+  droneRoutes: false,
+  myRoute: false,
+  childRoutes: false,
+  userRoutes: false,
+  setShowRoute: (routeType, value) =>
+    set(state => ({ ...state, [routeType]: value }))
 }));

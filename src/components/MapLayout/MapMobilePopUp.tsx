@@ -10,6 +10,7 @@ import Ruler from "../../assets/sidebar/ruler.svg";
 import Search from "../../assets/sidebar/search.svg";
 import Settings from "../../assets/sidebar/settings.svg";
 import { SidebarArrow } from "../../assets/SidebarArrow";
+import { useMapStore } from "../../store/mapStore";
 import { MapSettings } from "./MapLayout";
 
 interface Props {
@@ -44,7 +45,14 @@ export const MapMobilePopUp: FC<Props> = ({
   mapSettings,
   setMapSettings
 }) => {
+  const setShowRoute = useMapStore(state => state.setShowRoute);
   const handleOptionClick = (settingKey: keyof MapSettings) => {
+    if (settingKey === null) return;
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    setShowRoute(settingKey, !mapSettings[settingKey]);
+
     setMapSettings(prev => ({
       ...prev,
       [settingKey]: !prev[settingKey]

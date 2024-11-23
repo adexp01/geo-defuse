@@ -2,15 +2,16 @@ import classNames from "classnames";
 import { Dispatch, FC, SetStateAction } from "react";
 import Favicon from "../../assets/favicon.png";
 import Language from "../../assets/languages/ukr.png";
+import { ChildRoutes } from "../../assets/sidebar/ChildRoute";
+import { Drone } from "../../assets/sidebar/Drone";
+import { MyRoute } from "../../assets/sidebar/MyRoute";
+import { Routes } from "../../assets/sidebar/Routes";
 import Ruler from "../../assets/sidebar/ruler.svg";
 import Search from "../../assets/sidebar/search.svg";
 import Settings from "../../assets/sidebar/settings.svg";
 import { SidebarArrow } from "../../assets/SidebarArrow";
+import { useMapStore } from "../../store/mapStore";
 import { MapSettings } from "./MapLayout";
-import { Drone } from '../../assets/sidebar/Drone';
-import { Routes } from '../../assets/sidebar/Routes';
-import { MyRoute } from '../../assets/sidebar/MyRoute';
-import { ChildRoutes } from '../../assets/sidebar/ChildRoute';
 
 interface Props {
   expanded: boolean;
@@ -38,7 +39,13 @@ export const MapSidebar: FC<Props> = ({
   mapSettings,
   setMapSettings
 }) => {
+  const setShowRoute = useMapStore(state => state.setShowRoute);
   const handleOptionClick = (settingKey: keyof MapSettings) => {
+    if (settingKey === null) return;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    setShowRoute(settingKey, !mapSettings[settingKey]);
+
     setMapSettings(prev => ({
       ...prev,
       [settingKey]: !prev[settingKey]
