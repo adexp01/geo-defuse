@@ -4,7 +4,7 @@ import { Arrow } from "../../assets/Arrow";
 import Favicon from "../../assets/favicon.png";
 import BurgerClose from "../../assets/sidebar/closeOptions.svg";
 import Burger from "../../assets/sidebar/options.svg";
-import { useGlobalStore } from "../../globalStore";
+import { useGlobalStore } from "../../store";
 import { ProfilePopup } from "../ProfilePopup/ProfilePopup";
 import { MobileSidebar } from "./MobileSidebar";
 

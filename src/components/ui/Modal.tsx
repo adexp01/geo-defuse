@@ -1,8 +1,8 @@
 import { FC, ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Close from "../../assets/close.svg";
-import { useGlobalStore } from "../../globalStore";
 import { useResponsive } from "../../hooks/useResponsive";
+import { useGlobalStore } from "../../store";
 
 interface Props {
   open: boolean;

@@ -1,27 +1,56 @@
-import { FC } from "react";
-import Language from "../../assets/languages/ukr.png";
-import ChildRoutes from "../../assets/sidebar/childRoute.svg";
-import Drone from "../../assets/sidebar/drone.svg";
-import MyRoute from "../../assets/sidebar/myRoute.svg";
-import Burger from "../../assets/sidebar/options.svg";
-import Routes from "../../assets/sidebar/route.svg";
-
 import classNames from "classnames";
+import { Dispatch, FC, SetStateAction } from "react";
+import Language from "../../assets/languages/ukr.png";
+import { ChildRoutes } from "../../assets/sidebar/ChildRoute";
+import { Drone } from "../../assets/sidebar/Drone";
+import { MyRoute } from "../../assets/sidebar/MyRoute";
+import Burger from "../../assets/sidebar/options.svg";
+import { Routes } from "../../assets/sidebar/Routes";
 import Ruler from "../../assets/sidebar/ruler.svg";
 import Search from "../../assets/sidebar/search.svg";
 import Settings from "../../assets/sidebar/settings.svg";
 import { SidebarArrow } from "../../assets/SidebarArrow";
-
-const options = [Drone, Routes, MyRoute, ChildRoutes];
-
-const bottomOptions = [Settings, Search, Ruler];
+import { MapSettings } from "./MapLayout";
 
 interface Props {
   expanded: boolean;
   setExpanded: (expanded: boolean) => void;
+  mapSettings: MapSettings;
+  setMapSettings: Dispatch<SetStateAction<MapSettings>>;
 }
 
-export const MapMobilePopUp: FC<Props> = ({ expanded, setExpanded }) => {
+const optionsConfig: Array<{
+  icon: () => JSX.Element;
+  settingKey: keyof MapSettings;
+}> = [
+  { icon: Drone, settingKey: "droneRoutes" },
+  { icon: Routes, settingKey: "userRoutes" },
+  { icon: MyRoute, settingKey: "myRoute" },
+  { icon: ChildRoutes, settingKey: "childRoutes" }
+];
+
+const bottomOptionsConfig: Array<{
+  icon: string;
+  settingKey: keyof MapSettings | null;
+}> = [
+  { icon: Settings, settingKey: "filter" },
+  { icon: Search, settingKey: "search" },
+  { icon: Ruler, settingKey: null }
+];
+
+export const MapMobilePopUp: FC<Props> = ({
+  expanded,
+  setExpanded,
+  mapSettings,
+  setMapSettings
+}) => {
+  const handleOptionClick = (settingKey: keyof MapSettings) => {
+    setMapSettings(prev => ({
+      ...prev,
+      [settingKey]: !prev[settingKey]
+    }));
+  };
+
   return (
     <div
       className={classNames(
@@ -46,7 +75,7 @@ export const MapMobilePopUp: FC<Props> = ({ expanded, setExpanded }) => {
         )}
       >
         <p className="text-[#373737] text-lg font-normal">Вітаю, Андрій</p>
-        <img src={Burger} />
+        <img src={Burger} alt="menu" />
       </div>
 
       <div
@@ -60,24 +89,29 @@ export const MapMobilePopUp: FC<Props> = ({ expanded, setExpanded }) => {
             { hidden: !expanded }
           )}
         >
-          {bottomOptions.map((option, index) => (
+          {bottomOptionsConfig.map((option, index) => (
             <img
               key={index}
-              src={option}
+              src={option.icon}
+              onClick={() =>
+                option.settingKey && handleOptionClick(option.settingKey)
+              }
               alt="option"
-              className="w-[30px] h-[30px]"
+              className="w-[30px] h-[30px] cursor-pointer"
             />
           ))}
           <img src={Language} alt="language" className="w-[30px] h-[30px]" />
         </div>
-        <div className="flex h-20 items-center justify-between px-[30px] py-5 w-full">
-          {options.map((option, index) => (
-            <img
+        <div className="flex h-20 items-center justify-between px-[30px] py-5 w-full text-[#383838]">
+          {optionsConfig.map((option, index) => (
+            <div
               key={index}
-              src={option}
-              alt="option"
-              className="w-[30px] h-[30px]"
-            />
+              onClick={() =>
+                handleOptionClick(option.settingKey as keyof MapSettings)
+              }
+            >
+              <option.icon />
+            </div>
           ))}
         </div>
       </div>

@@ -1,36 +1,50 @@
-import { FC } from "react";
+import classNames from "classnames";
+import { Dispatch, FC, SetStateAction } from "react";
 import Favicon from "../../assets/favicon.png";
 import Language from "../../assets/languages/ukr.png";
-import ChildRoutes from "../../assets/sidebar/childRoute.svg";
-import Drone from "../../assets/sidebar/drone.svg";
-import MyRoute from "../../assets/sidebar/myRoute.svg";
-import Routes from "../../assets/sidebar/route.svg";
-
-import classNames from "classnames";
 import Ruler from "../../assets/sidebar/ruler.svg";
 import Search from "../../assets/sidebar/search.svg";
 import Settings from "../../assets/sidebar/settings.svg";
 import { SidebarArrow } from "../../assets/SidebarArrow";
-
-const options = [
-  { icon: Drone, label: "Маршрути наземних дронів" },
-  { icon: Routes, label: "Маршрути користувачів" },
-  { icon: MyRoute, label: "Мій маршрут" },
-  { icon: ChildRoutes, label: "Маршрути дітей " }
-];
-
-const bottomOptions = [
-  { icon: Settings, label: "Фільтр" },
-  { icon: Search, label: "Пошук" },
-  { icon: Ruler, label: "Маштаб" }
-];
+import { MapSettings } from "./MapLayout";
+import { Drone } from '../../assets/sidebar/Drone';
+import { Routes } from '../../assets/sidebar/Routes';
+import { MyRoute } from '../../assets/sidebar/MyRoute';
+import { ChildRoutes } from '../../assets/sidebar/ChildRoute';
 
 interface Props {
   expanded: boolean;
   setExpanded: (expanded: boolean) => void;
+  mapSettings: MapSettings;
+  setMapSettings: Dispatch<SetStateAction<MapSettings>>;
 }
 
-export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
+const optionsConfig = [
+  { icon: Drone, label: "Маршрути наземних дронів", settingKey: "droneRoutes" },
+  { icon: Routes, label: "Маршрути користувачів", settingKey: "userRoutes" },
+  { icon: MyRoute, label: "Мій маршрут", settingKey: "myRoute" },
+  { icon: ChildRoutes, label: "Маршрути дітей", settingKey: "childRoutes" }
+];
+
+const bottomOptionsConfig = [
+  { icon: Settings, label: "Фільтр", settingKey: "filter" },
+  { icon: Search, label: "Пошук", settingKey: "search" },
+  { icon: Ruler, label: "Маштаб", settingKey: null }
+];
+
+export const MapSidebar: FC<Props> = ({
+  expanded,
+  setExpanded,
+  mapSettings,
+  setMapSettings
+}) => {
+  const handleOptionClick = (settingKey: keyof MapSettings) => {
+    setMapSettings(prev => ({
+      ...prev,
+      [settingKey]: !prev[settingKey]
+    }));
+  };
+
   return (
     <div
       className={classNames(
@@ -47,7 +61,7 @@ export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
         <SidebarArrow rotate={expanded ? 180 : 0} />
       </button>
 
-      <div className='h-[20%]'></div>
+      <div className="h-[20%]"></div>
       <div className="absolute left-0 right-0">
         <div className="flex items-center justify-center">
           <img src={Favicon} alt="Favicon" className="w-[70px]" />
@@ -68,13 +82,23 @@ export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
           </div>
         )}
         <div className="flex flex-col gap-[30px]">
-          {options.map((option, index) => (
-            <div key={index} className="flex gap-[10px] items-center">
-              <img src={option.icon} />
+          {optionsConfig.map((option, index) => (
+            <div
+              key={index}
+              onClick={() =>
+                handleOptionClick(option.settingKey as keyof MapSettings)
+              }
+              className={classNames(
+                "flex gap-[10px] items-center cursor-pointer text-[#383838]",
+                {
+                  "text-[#C1272D]":
+                    mapSettings[option.settingKey as keyof MapSettings]
+                }
+              )}
+            >
+              <option.icon />
               {expanded && (
-                <p className="text-[#373737] text-xl font-normal mt-0.5">
-                  {option.label}
-                </p>
+                <p className="text-xl font-normal mt-0.5">{option.label}</p>
               )}
             </div>
           ))}
@@ -82,9 +106,20 @@ export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
       </div>
 
       <div className="flex flex-col gap-[30px]">
-        {bottomOptions.map((option, index) => (
-          <div key={index} className="flex gap-2.5 items-center">
-            <img src={option.icon} className="h-[32px] w-[32px]" />
+        {bottomOptionsConfig.map((option, index) => (
+          <div
+            key={index}
+            onClick={() =>
+              option.settingKey &&
+              handleOptionClick(option.settingKey as keyof MapSettings)
+            }
+            className="flex gap-2.5 items-center cursor-pointer"
+          >
+            <img
+              src={option.icon}
+              className="h-[32px] w-[32px]"
+              alt={option.label}
+            />
             {expanded && (
               <p className="text-[#373737] text-xl font-normal">
                 {option.label}
@@ -94,7 +129,7 @@ export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
         ))}
 
         <div className="flex gap-2.5 items-center">
-          <img src={Language} className="w-[35px]" />
+          <img src={Language} className="w-[35px]" alt="Language" />
           {expanded && (
             <p className="text-[#373737] text-xl font-normal">Мова</p>
           )}

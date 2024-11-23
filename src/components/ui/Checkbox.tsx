@@ -1,20 +1,17 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, HTMLProps } from "react";
 
-interface Props {
-  checked: boolean;
-  onChange: (checked: boolean) => void;
-  className?: string;
-}
-
-export const Checkbox: FC<Props> = ({ checked, onChange, className }) => {
+export const Checkbox: FC<HTMLProps<HTMLInputElement>> = ({
+  className = "",
+  ...props
+}) => {
   return (
     <input
+      {...props}
       type="checkbox"
-      checked={checked}
-      onChange={e => onChange(e.target.checked)}
+      defaultChecked
       className={classNames(
-        "toggle text-[#F8DFC1] border-white border-[0px] bg-[#F8DFC1] [--tglbg:white] hover:bg-current checked:bg-white checked:[--tglbg:#C8A67D] checked:text-white",
+        "checkbox bg-[#F8DFC1] [--chkbg:#F8DFC1]",
         className
       )}
     />

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Cells from "../../assets/cells.png";
 import Dia from "../../assets/dia.png";
 import Favicon from "../../assets/favicon.png";
-import { Checkbox } from "../../components/ui/Checkbox";
+import { Toggle } from "../../components/ui/Toggle";
 import { LoginForm } from "./LoginForm";
 
 const getClassNamesWithOpacity = (
@@ -90,7 +90,7 @@ export const Login = () => {
                 className="flex gap-2.5 cursor-pointer items-center"
                 onClick={() => setAgreementAccepted(prev => !prev)}
               >
-                <Checkbox checked={agreementAccepted} onChange={() => {}} />
+                <Toggle checked={agreementAccepted} onChange={() => {}} />
                 <div className="">
                   <p className="text-black text-xs font-normal">
                     Я ознайомився(-лась) та погоджуюся з{" "}
