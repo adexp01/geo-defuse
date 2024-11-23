@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Cells from "../../assets/cells.png";
 import Dia from "../../assets/dia.png";
 import Favicon from "../../assets/favicon.png";
@@ -17,6 +18,7 @@ const getClassNamesWithOpacity = (
 };
 
 export const Login = () => {
+  const { t } = useTranslation();
   const [agreementAccepted, setAgreementAccepted] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
@@ -40,7 +42,7 @@ export const Login = () => {
         ) : (
           <div className="flex flex-col gap-[30px]">
             <p className="text-center text-black text-2xl max-lg:text-xl font-normal">
-              Авторизуйтесь для входу
+              {t("login.title")}
             </p>
             <div className="flex flex-col gap-5 max-w-[530px] w-full">
               <button
@@ -57,7 +59,7 @@ export const Login = () => {
                     agreementAccepted
                   )}
                 >
-                  Увійти за логіном
+                  {t("login.login")}
                 </p>
               </button>
               <button className="p-2.5 bg-[#fff7eb] rounded-[20px] justify-center items-center gap-2.5 inline-flex h-[80px]">
@@ -67,7 +69,7 @@ export const Login = () => {
                     agreementAccepted
                   )}
                 >
-                  Увійти за GovID
+                  {t("login.loginByGovID")}
                 </p>
               </button>
               <button className="p-2.5 bg-[#fff7eb] flex items-center justify-center rounded-[20px] h-[80px]">
