@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Close from "../../assets/close.svg";
 import { DropdownArrow } from "../../assets/DropdownArrow";
 import Edit from "../../assets/edit.svg";
@@ -9,11 +10,17 @@ import UsageAgreement from "../../assets/usageAgreement.svg";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
 export const ProfilePopup = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const { ref } = useClickOutside(() => {
     setIsOpen(false);
   });
+
+  const handleLogOut = () => {
+    localStorage.removeItem("logedIn");
+    navigate("/login");
+  };
 
   return (
     <div className="relative" ref={ref}>
@@ -22,7 +29,10 @@ export const ProfilePopup = () => {
           Вітаю, Андрій
         </p>
 
-        <button className='max-md:hidden' onClick={() => setIsOpen(prev => !prev)}>
+        <button
+          className="max-md:hidden"
+          onClick={() => setIsOpen(prev => !prev)}
+        >
           <DropdownArrow />
         </button>
       </div>
@@ -66,7 +76,7 @@ export const ProfilePopup = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-[15px]">
+        <div className="flex items-center gap-[15px] w-fit" onClick={handleLogOut}>
           <img src={Logout} alt="logout" />
           <p className="text-[#c1272d] text-xl font-normal">Вийти</p>
         </div>
