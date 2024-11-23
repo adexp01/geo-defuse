@@ -41,7 +41,6 @@ const bottomOptionsConfig: Array<{
 export const MapMobilePopUp: FC<Props> = ({
   expanded,
   setExpanded,
-  mapSettings,
   setMapSettings
 }) => {
   const handleOptionClick = (settingKey: keyof MapSettings) => {
