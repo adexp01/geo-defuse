@@ -34,7 +34,7 @@ export const Home = () => {
     <MainLayout>
       <div className="flex-1 h-full w-full flex justify-center items-center px-[50px] max-lg:px-0">
         <div className="flex flex-col gap-5 w-full">
-          <div>
+          <div className='hidden max-lg:block'>
             <div className="slider-container">
               <Slider {...settings}>
                 <div className="px-5">
