@@ -9,8 +9,8 @@
   box-sizing: border-box;
 }
 
-:root {
-  background: #fff8eb;
+#root {
+  padding: 0px;
 }
 
 body {

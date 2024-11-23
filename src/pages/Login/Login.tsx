@@ -21,7 +21,7 @@ export const Login = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center px-5">
+    <div className="w-full h-screen flex items-center justify-center px-5">
       <img
         src={Cells}
         alt="cells"
