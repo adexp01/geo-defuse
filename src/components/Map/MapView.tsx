@@ -5,14 +5,10 @@ import { useEffect } from "react";
 
 export const MapView = () => {
   const occupiedAreaDonetskOblast = [
-    [47.6, 38.4],
-    [47.8, 38.1],
-    [48.1, 37.8],
-    [48.3, 37.6],
-    [48.5, 37.3],
-    [48.6, 37.2],
-    [48.7, 37.5],
-    [48.5, 37.7]
+    [48.0159, 37.8029],
+    [48.0159, 37.9029],
+    [47.9159, 37.9029],
+    [47.9159, 37.8029]
   ];
 
   const resolution = 7;
@@ -38,12 +34,22 @@ export const MapView = () => {
 
     const hexagons = h3.polygonToCells(occupiedAreaDonetskOblast, resolution);
 
-    hexagons.forEach(hex => {
+    hexagons.forEach((hex, index) => {
       const hexBoundary = h3.cellToBoundary(hex, true);
       const latLngs = hexBoundary.map(
         ([lat, lng]) => [lng, lat] as [number, number]
       );
-      L.polygon(latLngs, { color: "blue" }).addTo(map);
+
+      let color;
+      if (index < 3) {
+        color = "#D8FFB6";
+      } else if (index < 6) {
+        color = "#FFB638";
+      } else {
+        color = "#FF7676";
+      }
+
+      L.polygon(latLngs, { color, opacity: 0.3 }).addTo(map);
     });
 
     // const latLngBounds = L.latLngBounds(

@@ -32,7 +32,7 @@ export const MapMobilePopUp: FC<Props> = ({ expanded, setExpanded }) => {
       )}
     >
       <button
-        className="absolute z-[100] top-[-20px] right-0 left-0 w-fit mx-auto bg-white rounded-full p-1 cursor-pointer"
+        className="absolute z-[100] top-[-20px] right-0 left-0 w-fit mx-auto bg-[#FFF8EB] rounded-full p-1 cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
         <SidebarArrow rotate={expanded ? 90 : -90} />

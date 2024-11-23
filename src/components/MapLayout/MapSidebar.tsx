@@ -41,7 +41,7 @@ export const MapSidebar: FC<Props> = ({ expanded, setExpanded }) => {
       )}
     >
       <button
-        className="absolute z-30 top-[70px] right-[-20px] bg-white rounded-full p-1 cursor-pointer"
+        className="absolute z-30 top-[70px] right-[-20px] bg-[#FFF8EB] rounded-full p-1 cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
         <SidebarArrow rotate={expanded ? 180 : 0} />

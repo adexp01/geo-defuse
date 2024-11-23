@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import Cells from "../../assets/cells.png";
-import { Header } from "./Header";
+import { Header } from "../Header/Header";
 
 interface Props {
   children: ReactNode;

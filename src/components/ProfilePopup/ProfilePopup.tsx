@@ -5,9 +5,9 @@ import Close from "../../assets/close.svg";
 import { DropdownArrow } from "../../assets/DropdownArrow";
 import Edit from "../../assets/edit.svg";
 import Logout from "../../assets/logout.svg";
-import Policy from "../../assets/policy.svg";
-import UsageAgreement from "../../assets/usageAgreement.svg";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { UsageAgreement } from '../../assets/UsageAgreement';
+import { Policy } from '../../assets/Policy';
 
 export const ProfilePopup = () => {
   const navigate = useNavigate();
@@ -62,21 +62,24 @@ export const ProfilePopup = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          <div className="flex gap-[15px] items-center">
-            <img src={UsageAgreement} alt="usage agreement" />
+          <div className="flex gap-[15px] items-center text-black">
+            <UsageAgreement />
             <p className="text-[#373737] text-xl font-normal">
               Угода про використання
             </p>
           </div>
-          <div className="flex gap-[15px] items-center">
-            <img src={Policy} alt="policy" />
+          <div className="flex gap-[15px] items-center text-black">
+            <Policy />
             <p className="text-[#373737] text-xl font-normal">
               Політика конфіденційності
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-[15px] w-fit cursor-pointer" onClick={handleLogOut}>
+        <div
+          className="flex items-center gap-[15px] w-fit cursor-pointer"
+          onClick={handleLogOut}
+        >
           <img src={Logout} alt="logout" />
           <p className="text-[#c1272d] text-xl font-normal">Вийти</p>
         </div>
