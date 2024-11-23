@@ -6,6 +6,6 @@ export interface MapStore {
 }
 
 export const useMapStore = create<MapStore>(set => ({
-  showRoute: false,
+  showRoute: true,
   setShowRoute: value => set({ showRoute: value })
 }));
