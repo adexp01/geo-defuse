@@ -3,6 +3,7 @@ import { FC, ReactNode, useState } from "react";
 import Explored from "../../assets/map/explored.svg";
 import Unconfirmed from "../../assets/map/unconfirmed.svg";
 import Unexplored from "../../assets/map/unexplored.svg";
+import { MapMobilePopUp } from "./MapMobilePopUp";
 import { MapSidebar } from "./MapSidebar";
 
 interface Props {
@@ -13,12 +14,19 @@ export const MapLayout: FC<Props> = ({ children }) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   return (
-    <main>
+    <main className='h-screen'>
       <MapSidebar expanded={sidebarExpanded} setExpanded={setSidebarExpanded} />
+      <MapMobilePopUp
+        expanded={sidebarExpanded}
+        setExpanded={setSidebarExpanded}
+      />
       <div
-        className={classNames("pl-[100px] max-md:pl-0", {
-          "pl-[300px]": sidebarExpanded
-        })}
+        className={classNames(
+          "pl-[100px] pb-0 max-md:pl-0 max-md:pb-20 h-full relative z-0",
+          {
+            "pl-[300px] max-md:pb-[280px]": sidebarExpanded
+          }
+        )}
       >
         {children}
       </div>

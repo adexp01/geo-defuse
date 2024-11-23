@@ -21,3 +21,7 @@ body {
 .leaflet-pane {
   z-index: 1 !important;
 }
+
+.leaflet-control-attribution {
+  z-index: 2 !important;
+}

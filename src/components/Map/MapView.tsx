@@ -52,5 +52,5 @@ export const MapView = () => {
     // map.fitBounds(latLngBounds);
   }, []);
 
-  return <div id="map" className="h-screen w-full"></div>;
+  return <div id="map" className="h-full w-full"></div>;
 };

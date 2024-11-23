@@ -76,7 +76,7 @@ export const ProfilePopup = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-[15px] w-fit" onClick={handleLogOut}>
+        <div className="flex items-center gap-[15px] w-fit cursor-pointer" onClick={handleLogOut}>
           <img src={Logout} alt="logout" />
           <p className="text-[#c1272d] text-xl font-normal">Вийти</p>
         </div>
