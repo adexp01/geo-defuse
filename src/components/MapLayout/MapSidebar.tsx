@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { Dispatch, FC, SetStateAction } from "react";
 import Favicon from "../../assets/favicon.png";
-import Language from "../../assets/languages/ukr.png";
+import Language from "../../assets/languages/en.svg";
 import { ChildRoutes } from "../../assets/sidebar/ChildRoute";
 import { Drone } from "../../assets/sidebar/Drone";
 import { MyRoute } from "../../assets/sidebar/MyRoute";
