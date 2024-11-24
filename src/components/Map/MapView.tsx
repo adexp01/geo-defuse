@@ -2,7 +2,7 @@ import * as h3 from "h3-js";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css"; // Ensure Leaflet CSS is imported
 import { useEffect, useRef } from "react";
-import Marker from "../../assets/map/marker.svg";
+import Marker from "../../assets/map/marker.png";
 import { useMapStore } from "../../store/mapStore";
 
 const hardcodeDroneRoute = [
@@ -111,7 +111,7 @@ export const MapView = () => {
 
     const customIcon = L.icon({
       iconUrl: Marker,
-      iconSize: [38, 38],
+      iconSize: [28, 40],
       iconAnchor: [19, 38],
       popupAnchor: [0, -38]
     });
