@@ -71,7 +71,7 @@ export const MapLayout: FC<Props> = ({ children }) => {
             className="w-[30px] h-[30px] max-lg:w-[15px] max-lg:h-[15px]"
           />
           <p className="text-[#373737] text-xl max-lg:text-base font-normal capitalize">
-            Розвідано
+            Explored
           </p>
         </div>
         <div className="flex items-center gap-2.5 px-[5px] py-1 max-lg:flex-row-reverse max-lg:p-0.5">
@@ -80,7 +80,7 @@ export const MapLayout: FC<Props> = ({ children }) => {
             className="w-[30px] h-[30px] max-lg:w-[15px] max-lg:h-[15px]"
           />
           <p className="text-[#373737] text-xl max-lg:text-base font-normal capitalize">
-            Непідтверджено
+            Unconfirmed
           </p>
         </div>
         <div className="flex items-center gap-2.5 px-[5px] py-1 max-lg:flex-row-reverse max-lg:p-0.5">
@@ -89,7 +89,7 @@ export const MapLayout: FC<Props> = ({ children }) => {
             className="w-[30px] h-[30px] max-lg:w-[15px] max-lg:h-[15px]"
           />
           <p className="text-[#373737] text-xl max-lg:text-base font-normal capitalize">
-            Нерозвідано
+            Unexplored
           </p>
         </div>
       </div>

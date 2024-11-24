@@ -82,7 +82,7 @@ export const MapMobilePopUp: FC<Props> = ({
           }
         )}
       >
-        <p className="text-[#373737] text-lg font-normal">Вітаю, Андрій</p>
+        <p className="text-[#373737] text-lg font-normal">Hello, Andriy!</p>
         <img src={Burger} alt="menu" />
       </div>
 

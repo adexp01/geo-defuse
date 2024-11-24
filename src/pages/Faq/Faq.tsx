@@ -6,19 +6,16 @@ import { MainLayout } from "../../components/ui/MainLayout";
 
 const faqs = [
   {
-    question: "Як додати дитину?",
-    answer:
-      "Для додавання дитини перейдіть в налаштування та виберіть пункт 'Додати дитину'."
+    question: "How to add a child?",
+    answer: "To add a child, go to settings and select 'Add a child'."
   },
   {
-    question: "Як додати дитину?",
-    answer:
-      "Для додавання дитини перейдіть в налаштування та виберіть пункт 'Додати дитину'."
+    question: "How to add a child?",
+    answer: "To add a child, go to settings and select 'Add a child'."
   },
   {
-    question: "Як додати дитину?",
-    answer:
-      "Для додавання дитини перейдіть в налаштування та виберіть пункт 'Додати дитину'."
+    question: "How to add a child?",
+    answer: "To add a child, go to settings and select 'Add a child'."
   }
 ];
 

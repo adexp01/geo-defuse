@@ -9,9 +9,9 @@ import { ProfilePopup } from "../ProfilePopup/ProfilePopup";
 import { MobileSidebar } from "./MobileSidebar";
 
 const tabs = [
-  { label: "Про проект", link: "/about" },
+  { label: "About", link: "/about" },
   { label: "FAQ", link: "/faq" },
-  { label: "Контакти", link: "/contacts" }
+  { label: "Contacts", link: "/contacts" }
 ];
 
 export const Header = () => {

@@ -21,16 +21,16 @@ interface Props {
 }
 
 const optionsConfig = [
-  { icon: Drone, label: "Маршрути наземних дронів", settingKey: "droneRoutes" },
-  { icon: Routes, label: "Маршрути користувачів", settingKey: "userRoutes" },
-  { icon: MyRoute, label: "Мій маршрут", settingKey: "myRoute" },
-  { icon: ChildRoutes, label: "Маршрути дітей", settingKey: "childRoutes" }
+  { icon: Drone, label: "Drone routes", settingKey: "droneRoutes" },
+  { icon: Routes, label: "User routes", settingKey: "userRoutes" },
+  { icon: MyRoute, label: "My route", settingKey: "myRoute" },
+  { icon: ChildRoutes, label: "Children's routes", settingKey: "childRoutes" }
 ];
 
 const bottomOptionsConfig = [
-  { icon: Settings, label: "Фільтр", settingKey: "filter" },
-  { icon: Search, label: "Пошук", settingKey: "search" },
-  { icon: Ruler, label: "Маштаб", settingKey: null }
+  { icon: Settings, label: "Filter", settingKey: "filter" },
+  { icon: Search, label: "Search", settingKey: "search" },
+  { icon: Ruler, label: "Scale", settingKey: null }
 ];
 
 export const MapSidebar: FC<Props> = ({
@@ -76,7 +76,7 @@ export const MapSidebar: FC<Props> = ({
 
         {expanded && (
           <div className="flex flex-col pl-[25px]">
-            <p className="text-[#373737] text-2xl font-normal">Вітаю, Андрій</p>
+            <p className="text-[#373737] text-2xl font-normal">Hello, Andriy!</p>
             <div className="text-[#373737] text-xl font-normal">ID 2356847</div>
           </div>
         )}
@@ -85,7 +85,7 @@ export const MapSidebar: FC<Props> = ({
       <div>
         {expanded && (
           <div className="text-[#7b7b7b] text-xl font-normal mb-5">
-            Показати / Приховати:
+            Show / Hide:
           </div>
         )}
         <div className="flex flex-col gap-[30px]">
@@ -138,7 +138,7 @@ export const MapSidebar: FC<Props> = ({
         <div className="flex gap-2.5 items-center">
           <img src={Language} className="w-[35px]" alt="Language" />
           {expanded && (
-            <p className="text-[#373737] text-xl font-normal">Мова</p>
+            <p className="text-[#373737] text-xl font-normal">Language</p>
           )}
         </div>
       </div>

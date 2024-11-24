@@ -4,7 +4,7 @@ export const MapSearch = () => {
       <div className="bg-[#fff7eb] rounded-[30px] h-[50px] px-5 flex shadow-xl items-center">
         <input
           className="text-[#7b7b7b] text-xs font-normal bg-transparent outline-none w-full"
-          placeholder="Введіть назву міста"
+          placeholder="Enter the name of the city"
         />
       </div>
     </div>

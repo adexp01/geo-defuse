@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import Cells from "../../assets/cells.png";
 import Dia from "../../assets/dia.png";
 import Favicon from "../../assets/favicon.png";
@@ -18,7 +17,6 @@ const getClassNamesWithOpacity = (
 };
 
 export const Login = () => {
-  const { t } = useTranslation();
   const [agreementAccepted, setAgreementAccepted] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
@@ -40,9 +38,9 @@ export const Login = () => {
         {formOpen ? (
           <LoginForm />
         ) : (
-          <div className="flex flex-col gap-[30px]">
+          <div className="flex flex-col gap-[30px] max-w-[430px] w-full">
             <p className="text-center text-black text-2xl max-lg:text-xl font-normal">
-              {t("login.title")}
+              Please log in to access
             </p>
             <div className="flex flex-col gap-5 max-w-[530px] w-full">
               <button
@@ -59,7 +57,7 @@ export const Login = () => {
                     agreementAccepted
                   )}
                 >
-                  {t("login.login")}
+                  Log in with your login
                 </p>
               </button>
               <button className="p-2.5 bg-[#fff7eb] rounded-[20px] justify-center items-center gap-2.5 inline-flex h-[80px]">
@@ -69,7 +67,7 @@ export const Login = () => {
                     agreementAccepted
                   )}
                 >
-                  {t("login.loginByGovID")}
+                  Log in with GovID
                 </p>
               </button>
               <button className="p-2.5 bg-[#fff7eb] flex items-center justify-center rounded-[20px] h-[80px]">
@@ -81,7 +79,7 @@ export const Login = () => {
                 >
                   <img src={Dia} alt="Дія" className="max-h-[50px]" />
                   <p className="text-center text-[#373737] text-2xl max-lg:text-xl font-normal">
-                    Підпис
+                    Signature
                   </p>
                 </div>
               </button>
@@ -93,9 +91,9 @@ export const Login = () => {
                 <Toggle checked={agreementAccepted} onChange={() => {}} />
                 <div className="">
                   <p className="text-black text-xs font-normal">
-                    Я ознайомився(-лась) та погоджуюся з{" "}
+                    I have read and agree to the{" "}
                     <span className="text-[#c1272d] text-xs font-normal">
-                      публічною офертою
+                      public offer
                     </span>
                   </p>
                 </div>

@@ -3,7 +3,7 @@ import HttpBackend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
 const defaultData = {
-  defaultLanguage: "ua",
+  defaultLanguage: "en",
   useBrowserLanguage: true
 };
 

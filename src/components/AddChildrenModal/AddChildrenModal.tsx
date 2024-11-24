@@ -14,15 +14,16 @@ export const AddChildrenModal: FC<Props> = ({ open, onClose }) => {
     <Modal open={open} onClose={onClose}>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-5">
-          <TextInput label="Введіть ім’я дитини" placeholder="Введіть ім’я" />
+          <TextInput label="Enter child name" placeholder="Enter name" />
+          <TextInput label="Enter email" placeholder="loginexample@gmai.com" />
           <TextInput
-            label="Введіть логін"
-            placeholder="loginexample@gmai.com"
+            label="Enter password"
+            placeholder="Enter password"
+            type="password"
           />
-          <TextInput label="Введіть пароль" placeholder="password" />
           <div className="h-[55px] p-2.5 bg-[#f8dfc1] rounded-[10px] justify-center items-center gap-2.5 inline-flex">
             <p className="text-center text-[#373737] text-2xl max-lg:text-xl font-normal">
-              Додати
+              Add
             </p>
           </div>
         </div>
@@ -51,7 +52,7 @@ const ChildrenListItem = () => {
     <div className="py-2.5 border-b-[1px] border-[#C8A67D] flex items-center justify-between w-full">
       <div className="flex gap-5 items-center">
         <img src={Roflan} />
-        <p className="text-xl max-lg:text-lg text-[#373737]">Олександр</p>
+        <p className="text-xl max-lg:text-lg text-[#373737]">Viktoria</p>
       </div>
       <img src={Delete} />
     </div>

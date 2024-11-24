@@ -34,27 +34,27 @@ export const Home = () => {
     <MainLayout>
       <div className="flex-1 h-full w-full flex justify-center items-center px-[50px] max-lg:px-0">
         <div className="flex flex-col gap-5 w-full">
-          <div className='hidden max-lg:block'>
+          <div className="hidden max-lg:block">
             <div className="slider-container">
               <Slider {...settings}>
                 <div className="px-5">
                   <Card
                     onClick={() => setActionModal("children")}
-                    label="Додати акаунт дитини"
+                    label="Add a child account"
                     icon={AddChildren}
                   />
                 </div>
                 <div className="px-5">
                   <Card
                     onClick={() => setActionModal("drone")}
-                    label="Керування вашими пристроями"
+                    label="Manage your devices"
                     icon={Devices}
                   />
                 </div>
                 <div className="px-5">
                   <Card
                     onClick={() => setActionModal("devices")}
-                    label="Активні пристрої"
+                    label="Active Devices"
                     icon={ActiveDevices}
                   />
                 </div>
@@ -67,7 +67,7 @@ export const Home = () => {
               className="w-full h-[98px] max-lg:h-[50px] p-2.5 bg-[#c7a67d] rounded-[20px] justify-center items-center gap-2.5 inline-flex text-[#fff7eb] hover:text-[#535353] hover:bg-[#F8DFC1] transition-all duration-200"
             >
               <div className="text-center  text-3xl max-lg:text-xl font-normal">
-                Перейти до мапи
+                Go to the map
               </div>
               <div className="mt-1">
                 <Arrow />
@@ -77,17 +77,17 @@ export const Home = () => {
           <div className="flex gap-5 max-lg:hidden">
             <Card
               onClick={() => setActionModal("children")}
-              label="Додати акаунт дитини"
+              label="Add a child account"
               icon={AddChildren}
             />
             <Card
               onClick={() => setActionModal("drone")}
-              label="Керування вашими пристроями"
+              label="Manage your devices"
               icon={Devices}
             />
             <Card
               onClick={() => setActionModal("devices")}
-              label="Активні пристрої"
+              label="Active Devices"
               icon={ActiveDevices}
             />
           </div>

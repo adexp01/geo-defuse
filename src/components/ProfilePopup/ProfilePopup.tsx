@@ -5,9 +5,9 @@ import Close from "../../assets/close.svg";
 import { DropdownArrow } from "../../assets/DropdownArrow";
 import Edit from "../../assets/edit.svg";
 import Logout from "../../assets/logout.svg";
+import { Policy } from "../../assets/Policy";
+import { UsageAgreement } from "../../assets/UsageAgreement";
 import { useClickOutside } from "../../hooks/useClickOutside";
-import { UsageAgreement } from '../../assets/UsageAgreement';
-import { Policy } from '../../assets/Policy';
 
 export const ProfilePopup = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ export const ProfilePopup = () => {
     <div className="relative" ref={ref}>
       <div className="flex gap-2.5 items-center cursor-pointer">
         <p className="text-[#373737] text-2xl max-lg:text-lg font-normal">
-          Вітаю, Андрій
+          Hello, Andriy!
         </p>
 
         <button
@@ -47,7 +47,7 @@ export const ProfilePopup = () => {
           <div className="flex flex-col">
             <div className="flex gap-4">
               <p className="text-[#373737] text-2xl font-normal">
-                Вітаю, Андрій
+                Hello, Andriy!
               </p>
               <img src={Edit} alt="edit" />
             </div>
@@ -65,14 +65,12 @@ export const ProfilePopup = () => {
           <div className="flex gap-[15px] items-center text-black">
             <UsageAgreement />
             <p className="text-[#373737] text-xl font-normal">
-              Угода про використання
+              Terms of use agreement
             </p>
           </div>
           <div className="flex gap-[15px] items-center text-black">
             <Policy />
-            <p className="text-[#373737] text-xl font-normal">
-              Політика конфіденційності
-            </p>
+            <p className="text-[#373737] text-xl font-normal">Privacy policy</p>
           </div>
         </div>
 
@@ -81,7 +79,7 @@ export const ProfilePopup = () => {
           onClick={handleLogOut}
         >
           <img src={Logout} alt="logout" />
-          <p className="text-[#c1272d] text-xl font-normal">Вийти</p>
+          <p className="text-[#c1272d] text-xl font-normal">Logout</p>
         </div>
       </div>
     </div>

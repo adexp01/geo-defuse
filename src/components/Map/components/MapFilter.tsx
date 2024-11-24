@@ -2,12 +2,12 @@ import classNames from "classnames";
 import { FC } from "react";
 import { Checkbox } from "../../ui/Checkbox";
 
-const RouteFilters = [{ name: "Людиною" }, { name: "Дроном" }];
+const RouteFilters = [{ name: "By Person" }, { name: "By Drone" }];
 
 const SectionFilters = [
-  { name: "розвідано" },
-  { name: "непідтверджено" },
-  { name: "нерозвідано" }
+  { name: "Explored" },
+  { name: "Unconfirmed" },
+  { name: "Unexplored" }
 ];
 
 interface Props {
@@ -25,7 +25,7 @@ export const MapFilter: FC<Props> = ({ sidebarExpanded }) => {
       )}
     >
       <div className="flex flex-col gap-4">
-        <p className="text-[#373737] text-sm font-normal uppercase">маршрут</p>
+        <p className="text-[#373737] text-sm font-normal uppercase">Route</p>
 
         <div className="flex flex-col gap-2.5">
           {RouteFilters.map((filter, index) => (
@@ -40,7 +40,7 @@ export const MapFilter: FC<Props> = ({ sidebarExpanded }) => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <p className="text-[#373737] text-sm font-normal uppercase">секції</p>
+        <p className="text-[#373737] text-sm font-normal uppercase">Sections</p>
 
         <div className="flex flex-col gap-2.5">
           {SectionFilters.map((filter, index) => (

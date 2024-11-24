@@ -6,11 +6,11 @@ import { Policy } from "../../assets/Policy";
 import { UsageAgreement } from "../../assets/UsageAgreement";
 
 const navigateOptions = [
-  { label: "Про нас", link: "/about" },
+  { label: "About", link: "/about" },
   { label: "FAQ", link: "/faq" },
-  { label: "Контакти", link: "/contacts" },
-  { label: "Умови користування", link: "#", Icon: UsageAgreement },
-  { label: "Політика конфіденційності", link: "#", Icon: Policy }
+  { label: "Contacts", link: "/contacts" },
+  { label: "Terms of use agreement", link: "#", Icon: UsageAgreement },
+  { label: "Privacy policy", link: "#", Icon: Policy }
 ];
 
 export const MobileSidebar = () => {
@@ -25,7 +25,7 @@ export const MobileSidebar = () => {
     <div className="bg-[#FFF8EB] fixed top-[98px] z-50 left-0 right-0 bottom-0 px-5 pb-[50px] flex flex-col items-center justify-between">
       <div className="flex flex-col w-full">
         <div className="flex gap-4 w-full justify-between items-center">
-          <p className="text-[#373737] text-2xl font-normal">Вітаю, Андрій</p>
+          <p className="text-[#373737] text-2xl font-normal">Hello, Andriy!</p>
           <img src={Edit} alt="edit" />
         </div>
         <p className="text-[#373737] text-xl font-normal">ID 2356847</p>
@@ -52,7 +52,7 @@ export const MobileSidebar = () => {
           onClick={handleLogOut}
         >
           <img src={Logout} alt="logout" />
-          <p className="text-[#c1272d] text-xl font-normal">Вийти</p>
+          <p className="text-[#c1272d] text-xl font-normal">Logout</p>
         </div>
       </div>
     </div>
