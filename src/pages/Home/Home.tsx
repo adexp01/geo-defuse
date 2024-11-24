@@ -40,7 +40,7 @@ export const Home = () => {
                 <div className="px-5">
                   <Card
                     onClick={() => setActionModal("children")}
-                    label="Add a child account"
+                    label="Add your kids"
                     icon={AddChildren}
                   />
                 </div>
@@ -67,7 +67,7 @@ export const Home = () => {
               className="w-full h-[98px] max-lg:h-[50px] p-2.5 bg-[#c7a67d] rounded-[20px] justify-center items-center gap-2.5 inline-flex text-[#fff7eb] hover:text-[#535353] hover:bg-[#F8DFC1] transition-all duration-200"
             >
               <div className="text-center  text-3xl max-lg:text-xl font-normal">
-                Go to the map
+                Explore the map
               </div>
               <div className="mt-1">
                 <Arrow />
@@ -77,7 +77,7 @@ export const Home = () => {
           <div className="flex gap-5 max-lg:hidden">
             <Card
               onClick={() => setActionModal("children")}
-              label="Add a child account"
+              label="Add your kids"
               icon={AddChildren}
             />
             <Card

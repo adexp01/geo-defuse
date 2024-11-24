@@ -40,7 +40,7 @@ export const Login = () => {
         ) : (
           <div className="flex flex-col gap-[30px] max-w-[430px] w-full">
             <p className="text-center text-black text-2xl max-lg:text-xl font-normal">
-              Please log in to access
+              Please login to proceed
             </p>
             <div className="flex flex-col gap-5 max-w-[530px] w-full">
               <button
@@ -57,7 +57,7 @@ export const Login = () => {
                     agreementAccepted
                   )}
                 >
-                  Log in with your login
+                  Login with your credentails
                 </p>
               </button>
               <button className="p-2.5 bg-[#fff7eb] rounded-[20px] justify-center items-center gap-2.5 inline-flex h-[80px]">
@@ -79,7 +79,7 @@ export const Login = () => {
                 >
                   <img src={Dia} alt="Дія" className="max-h-[50px]" />
                   <p className="text-center text-[#373737] text-2xl max-lg:text-xl font-normal">
-                    Signature
+                    Підпис
                   </p>
                 </div>
               </button>

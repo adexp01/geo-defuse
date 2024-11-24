@@ -24,7 +24,7 @@ const optionsConfig = [
   { icon: Drone, label: "Drone routes", settingKey: "droneRoutes" },
   { icon: Routes, label: "User routes", settingKey: "userRoutes" },
   { icon: MyRoute, label: "My route", settingKey: "myRoute" },
-  { icon: ChildRoutes, label: "Children's routes", settingKey: "childRoutes" }
+  { icon: ChildRoutes, label: "My kids routes", settingKey: "childRoutes" }
 ];
 
 const bottomOptionsConfig = [
