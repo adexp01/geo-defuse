@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import Explored from "../../assets/map/explored.svg";
 import Unconfirmed from "../../assets/map/unconfirmed.svg";
 import Unexplored from "../../assets/map/unexplored.svg";
-import { useMapStore } from "../../store/mapStore";
 import { MapFilter } from "../Map/components/MapFilter";
 import { MapSearch } from "../Map/components/MapSearch";
 import { MapMobilePopUp } from "./MapMobilePopUp";
@@ -24,7 +23,6 @@ interface Props {
 }
 
 export const MapLayout: FC<Props> = ({ children }) => {
-  const setShowRoute = useMapStore(state => state.setShowRoute);
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   const [mapSettings, setMapSettings] = useState<MapSettings>({
@@ -36,17 +34,6 @@ export const MapLayout: FC<Props> = ({ children }) => {
     userRoutes: false,
     childRoutes: false
   });
-
-  useEffect(() => {
-    const { droneRoutes, myRoute, userRoutes, childRoutes } = mapSettings;
-    if (droneRoutes || myRoute || userRoutes || childRoutes) {
-      setShowRoute(true);
-    }
-
-    if (!droneRoutes && !myRoute && !userRoutes && !childRoutes) {
-      setShowRoute(false);
-    }
-  }, [mapSettings, setShowRoute]);
 
   return (
     <main className="h-screen">
