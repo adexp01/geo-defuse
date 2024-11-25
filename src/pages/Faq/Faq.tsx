@@ -35,7 +35,7 @@ export const Faq = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="flex flex-col gap-2.5 bg-[#F8DFC1] max-lg:py-[5px] max-lg:px-2.5 max-lg:rounded-[10px]"
+              className="flex flex-col gap-2.5 max-lg:bg-[#F8DFC1] max-lg:py-[5px] max-lg:px-2.5 max-lg:rounded-[10px]"
             >
               <div className="flex gap-2.5 items-center">
                 <img
