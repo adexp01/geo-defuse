@@ -36,3 +36,8 @@ body {
 .slick-dots li.slick-active button:before {
   color: #c8a67d;
 }
+
+.slick-dots li {
+  width: 13px !important;
+  margin: 0px !important;
+}

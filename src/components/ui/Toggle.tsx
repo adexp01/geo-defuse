@@ -14,7 +14,7 @@ export const Toggle: FC<Props> = ({ checked, onChange, className }) => {
       checked={checked}
       onChange={e => onChange(e.target.checked)}
       className={classNames(
-        "toggle text-[#F8DFC1] border-white border-[0px] bg-[#F8DFC1] [--tglbg:white] hover:bg-current checked:bg-white checked:[--tglbg:#C8A67D] checked:text-white",
+        "toggle text-[#F8DFC1] border-white border-[0px] bg-[#F8DFC1] [--tglbg:white] hover:bg-current checked:bg-white checked:[--tglbg:#C8A67D] checked:text-white max-lg:scale-[.7] max-lg:mr-[-8px]",
         className
       )}
     />

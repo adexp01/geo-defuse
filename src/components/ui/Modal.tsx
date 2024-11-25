@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { FC, ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Close from "../../assets/close.svg";
@@ -8,9 +9,17 @@ interface Props {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  modalWrapperClassName?: string;
+  contentClassName?: string;
 }
 
-export const Modal: FC<Props> = ({ children, open, onClose }) => {
+export const Modal: FC<Props> = ({
+  children,
+  open,
+  onClose,
+  modalWrapperClassName,
+  contentClassName
+}) => {
   const { modalOpen, setModalOpen } = useGlobalStore();
   const isMobile = useResponsive("(max-width: 768px)");
 
@@ -35,10 +44,18 @@ export const Modal: FC<Props> = ({ children, open, onClose }) => {
   if (!open) return null;
 
   return createPortal(
-    <div className="fixed top-0 left-0 z-20 w-screen h-screen bg-black/50 flex items-center justify-center p-5 max-md:bg-transparent max-md:top-[98px] max-md:h-[calc(100vh-98px)] max-md:pr-0">
+    <div
+      className={classNames(
+        "fixed top-0 left-0 z-20 w-screen h-screen bg-black/50 flex justify-center items-center p-5 max-md:bg-[#FFF8EB] max-md:top-[98px] max-md:h-[calc(100vh-98px)] max-md:px-0",
+        modalWrapperClassName
+      )}
+    >
       <div
         // ref={ref}
-        className="relative w-[825px] py-[50px] px-[130px] max-md:px-5 bg-[#FFF8EB] rounded-[20px] max-h-[calc(100vh-98px)] overflow-y-auto max-md:pr-10"
+        className={classNames(
+          "relative w-[825px] py-[50px] px-[130px] max-md:px-5 bg-[#FFF8EB] rounded-[20px] max-h-[calc(100vh-98px)] overflow-y-auto",
+          contentClassName
+        )}
       >
         <button className="absolute top-5 right-[30px] max-md:hidden">
           <img src={Close} alt="close" onClick={onClose} />

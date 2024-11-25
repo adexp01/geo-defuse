@@ -8,13 +8,15 @@ import Logout from "../../assets/logout.svg";
 import { Policy } from "../../assets/Policy";
 import { UsageAgreement } from "../../assets/UsageAgreement";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { ChangeUsernameModal } from "../ChangeUsernameModal/ChangeUsernameModal";
 
 export const ProfilePopup = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const { ref } = useClickOutside(() => {
-    setIsOpen(false);
+    setIsPopupOpen(false);
   });
 
   const handleLogOut = () => {
@@ -31,7 +33,7 @@ export const ProfilePopup = () => {
 
         <button
           className="max-md:hidden"
-          onClick={() => setIsOpen(prev => !prev)}
+          onClick={() => setIsPopupOpen(prev => !prev)}
         >
           <DropdownArrow />
         </button>
@@ -40,7 +42,7 @@ export const ProfilePopup = () => {
       <div
         className={classNames(
           "absolute top-12 right-0 h-[385px] w-[424px] px-[30px] py-10 flex flex-col justify-between bg-[#FFF8EB] rounded-[20px] shadow-lg",
-          { hidden: !isOpen }
+          { hidden: !isPopupOpen }
         )}
       >
         <div className="flex items-start justify-between">
@@ -49,7 +51,7 @@ export const ProfilePopup = () => {
               <p className="text-[#373737] text-2xl font-normal">
                 Hello, Andriy!
               </p>
-              <img src={Edit} alt="edit" />
+              <img src={Edit} alt="edit" onClick={() => setModalOpen(true)} />
             </div>
             <p className="text-[#373737] text-xl font-normal">ID 2356847</p>
           </div>
@@ -57,7 +59,7 @@ export const ProfilePopup = () => {
             src={Close}
             alt="close"
             className="cursor-pointer"
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsPopupOpen(false)}
           />
         </div>
 
@@ -82,6 +84,10 @@ export const ProfilePopup = () => {
           <p className="text-[#c1272d] text-xl font-normal">Logout</p>
         </div>
       </div>
+      <ChangeUsernameModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 };

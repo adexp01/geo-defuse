@@ -31,9 +31,12 @@ export const Faq = () => {
   return (
     <MainLayout>
       <div className="px-[50px] py-[100px] max-lg:px-5 max-lg:py-8">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 max-lg:gap-2.5">
           {faqs.map((faq, index) => (
-            <div key={index} className="flex flex-col gap-2.5">
+            <div
+              key={index}
+              className="flex flex-col gap-2.5 bg-[#F8DFC1] max-lg:py-[5px] max-lg:px-2.5 max-lg:rounded-[10px]"
+            >
               <div className="flex gap-2.5 items-center">
                 <img
                   src={expandedIndex === index ? Collapse : Expand}
@@ -47,7 +50,12 @@ export const Faq = () => {
                   }}
                 />
                 <p
-                  className="text-[#373737] text-2xl max-lg:text-xl font-normal cursor-pointer"
+                  className={classNames(
+                    "text-[#373737] text-2xl max-lg:text-xl font-normal cursor-pointer",
+                    {
+                      "text-[#C1272D]": expandedIndex === index
+                    }
+                  )}
                   onClick={() => {
                     if (expandedIndex === index) {
                       setExpandedIndex(-1);

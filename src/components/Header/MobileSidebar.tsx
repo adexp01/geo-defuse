@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import Edit from "../../assets/edit.svg";
 import Logout from "../../assets/logout.svg";
 import { Policy } from "../../assets/Policy";
 import { UsageAgreement } from "../../assets/UsageAgreement";
+import { ChangeUsernameModal } from "../ChangeUsernameModal/ChangeUsernameModal";
 
 const navigateOptions = [
   { label: "About", link: "/about" },
@@ -16,17 +18,19 @@ const navigateOptions = [
 export const MobileSidebar = () => {
   const navigate = useNavigate();
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   const handleLogOut = () => {
     localStorage.removeItem("logedIn");
     navigate("/login");
   };
 
   const sidebarContent = (
-    <div className="bg-[#FFF8EB] fixed top-[98px] z-50 left-0 right-0 bottom-0 px-5 pb-[50px] flex flex-col items-center justify-between">
+    <div className="bg-[#FFF8EB] fixed top-[98px] z-10 left-0 right-0 bottom-0 px-5 pb-[50px] flex flex-col items-center justify-between">
       <div className="flex flex-col w-full">
         <div className="flex gap-4 w-full justify-between items-center">
           <p className="text-[#373737] text-2xl font-normal">Hello, Andriy!</p>
-          <img src={Edit} alt="edit" />
+          <img src={Edit} alt="edit" onClick={() => setModalOpen(true)} />
         </div>
         <p className="text-[#373737] text-xl font-normal">ID 2356847</p>
       </div>
@@ -55,6 +59,10 @@ export const MobileSidebar = () => {
           <p className="text-[#c1272d] text-xl font-normal">Logout</p>
         </div>
       </div>
+      <ChangeUsernameModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 

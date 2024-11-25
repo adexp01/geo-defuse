@@ -25,20 +25,20 @@ export const Login = () => {
       <img
         src={Cells}
         alt="cells"
-        className="fixed top-[-220px] left-[-150px] w-[650px] object-cover"
+        className="fixed top-[-220px] left-[-150px] w-[650px] object-cover max-lg:top-[-170px] max-lg:left-[-120px] max-lg:w-[350px]"
       />
       <img
         src={Cells}
         alt="cells"
-        className="fixed bottom-[-220px] right-[-150px] w-[650px] object-cover"
+        className="fixed bottom-[-220px] right-[-150px] w-[650px] object-cover max-lg:bottom-[-170px] max-lg:right-[-120px]"
       />
-      <div className="flex flex-col justify-center items-center gap-2.5 bg-primary rounded-[50px] pt-2.5 pb-[100px] px-[70px] max-lg:px-5 max-lg:py-[40px] relative z-1 max-lg:rounded-[10px] w-full max-w-[670px]">
+      <div className="flex flex-col justify-center items-center gap-2.5 bg-primary rounded-[50px] pt-2.5 pb-[100px] px-[70px] max-lg:px-5 max-lg:py-[40px] relative z-1 max-lg:rounded-[20px] w-full max-w-[670px]">
         <img src={Favicon} alt="geo defuse" className="max-w-[100px]" />
 
         {formOpen ? (
           <LoginForm />
         ) : (
-          <div className="flex flex-col gap-[30px] max-w-[430px] w-full">
+          <div className="flex flex-col gap-[30px] max-lg:gap-5 max-w-[430px] w-full">
             <p className="text-center text-black text-2xl max-lg:text-xl font-normal">
               Please login to proceed
             </p>
@@ -49,7 +49,7 @@ export const Login = () => {
                     setFormOpen(true);
                   }
                 }}
-                className="p-2.5 bg-[#fff7eb] rounded-[20px] justify-center items-center gap-2.5 inline-flex h-[80px]"
+                className="p-2.5 bg-[#fff7eb] rounded-[20px] max-lg:rounded-[10px] justify-center items-center gap-2.5 inline-flex h-[80px] max-lg:h-[50px]"
               >
                 <p
                   className={getClassNamesWithOpacity(
@@ -60,7 +60,7 @@ export const Login = () => {
                   Login with your credentails
                 </p>
               </button>
-              <button className="p-2.5 bg-[#fff7eb] rounded-[20px] justify-center items-center gap-2.5 inline-flex h-[80px]">
+              <button className="p-2.5 bg-[#fff7eb] rounded-[20px] max-lg:rounded-[10px] justify-center items-center gap-2.5 inline-flex h-[80px] max-lg:h-[50px]">
                 <p
                   className={getClassNamesWithOpacity(
                     "text-center text-[#373737] text-2xl max-lg:text-xl font-normal",
@@ -70,14 +70,18 @@ export const Login = () => {
                   Log in with GovID
                 </p>
               </button>
-              <button className="p-2.5 bg-[#fff7eb] flex items-center justify-center rounded-[20px] h-[80px]">
+              <button className="p-2.5 bg-[#fff7eb] flex items-center justify-center rounded-[20px] max-lg:rounded-[10px] h-[80px] max-lg:h-[50px]">
                 <div
                   className={getClassNamesWithOpacity(
                     "inline-flex justify-center items-center gap-2.5",
                     agreementAccepted
                   )}
                 >
-                  <img src={Dia} alt="Дія" className="max-h-[50px]" />
+                  <img
+                    src={Dia}
+                    alt="Дія"
+                    className="max-h-[50px] max-lg:max-h-[37px]"
+                  />
                   <p className="text-center text-[#373737] text-2xl max-lg:text-xl font-normal">
                     Підпис
                   </p>

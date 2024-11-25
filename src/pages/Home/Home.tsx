@@ -5,6 +5,7 @@ import { ActiveDevices } from "../../assets/ActiveDevices";
 import { AddChildren } from "../../assets/AddChildren";
 import { Arrow } from "../../assets/Arrow";
 import { Devices } from "../../assets/Devices";
+import { ActiveDevicesModal } from "../../components/ActiveDevicesModal/ActiveDevicesModal";
 import { AddChildrenModal } from "../../components/AddChildrenModal/AddChildrenModal";
 import { AddDeviceModal } from "../../components/AddDeviceModal/AddDeviceModal";
 import { MainLayout } from "../../components/ui/MainLayout";
@@ -64,7 +65,7 @@ export const Home = () => {
           <div className="max-lg:px-5 max-lg:pt-3">
             <button
               onClick={() => navigate("/map")}
-              className="w-full h-[98px] max-lg:h-[50px] p-2.5 bg-[#c7a67d] rounded-[20px] justify-center items-center gap-2.5 inline-flex text-[#fff7eb] hover:text-[#535353] hover:bg-[#F8DFC1] transition-all duration-200"
+              className="w-full h-[98px] max-lg:h-[50px] p-2.5 bg-[#c7a67d] rounded-[20px] justify-center items-center gap-2.5 inline-flex text-[#fff7eb] hover:text-[#535353] hover:bg-[#F8DFC1] transition-all duration-200 max-lg:rounded-[10px]"
             >
               <div className="text-center  text-3xl max-lg:text-xl font-normal">
                 Explore the map
@@ -96,6 +97,7 @@ export const Home = () => {
 
       <AddChildrenModal open={actionModal === "children"} onClose={onClose} />
       <AddDeviceModal open={actionModal === "drone"} onClose={onClose} />
+      <ActiveDevicesModal open={actionModal === "devices"} onClose={onClose} />
     </MainLayout>
   );
 };

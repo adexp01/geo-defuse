@@ -17,7 +17,7 @@ export const TextInput: FC<Props> = ({ label, className, ...props }) => {
       )}
       <input
         className={classNames(
-          "h-12 p-2.5 rounded-[10px] border border-[#373737] justify-start items-center inline-flex bg-transparent focus:outline-none text-[#373737] font-normal",
+          "h-12 max-lg:h-10 p-2.5 rounded-[10px] border border-[#373737] justify-start items-center inline-flex bg-transparent focus:outline-none text-[#373737] font-normal text-lg",
           className
         )}
         {...props}
